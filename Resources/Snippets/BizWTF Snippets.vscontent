@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<VSContent xmlns="http://schemas.microsoft.com/developer/vscontent/2005">
+  <Content>
+    <FileName>Mocking - Create 1way service.snippet</FileName>
+    <DisplayName>BizWTF Mocking - Create 1Way service (code sample)</DisplayName>
+    <Description>Init a 2-way mock service and starts it</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Mocking - Create 2way service.snippet</FileName>
+    <DisplayName>BizWTF Mocking - Create 2Way service (code sample)</DisplayName>
+    <Description>BizWTF Mocking - Create 2Way service (code sample)</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Mocking - 2Way service - Add part resolution setting.snippet</FileName>
+    <DisplayName>BizWTF Mocking - 2Way service - Add part resolution setting (code sample)</DisplayName>
+    <Description>BizWTF Mocking - 2Way service - Add part resolution setting (code sample)</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Mocking - Submit 1way message.snippet</FileName>
+    <DisplayName>BizWTF Mocking - Submit 1Way Message (code sample)</DisplayName>
+    <Description>BizWTF Mocking - Submit 1Way Message (code sample)</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+</Content>
+  <Content>
+    <FileName>Mocking - Submit 2way message.snippet</FileName>
+    <DisplayName>BizWTF Mocking - Submit 2Way Message (code sample)</DisplayName>
+    <Description>BizWTF Mocking - Submit 2Way Message (code sample)</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Mocking - Surround XML message with BizWTF decoration.snippet</FileName>
+    <DisplayName>BizWTF Mocking - Surround XML message with BizWTF formatting</DisplayName>
+    <Description>BizWTF Mocking - Surround XML message with BizWTF formatting</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Mocking - Surround raw message with BizWTF decoration.snippet</FileName>
+    <DisplayName>BizWTF Mocking - Surround raw message with BizWTF formatting</DisplayName>
+    <Description>BizWTF Mocking - Surround raw message with BizWTF formatting</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Orchestration - Get process debug infos.snippet</FileName>
+    <DisplayName>BizWTF Testing - Get orchestration instance debug information and test (code sample)</DisplayName>
+    <Description>BizWTF Testing - Get orchestration instance debug information and test (code sample)</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+  <Content>
+    <FileName>Orchestration - Synchronize.snippet</FileName>
+    <DisplayName>BizWTF Testing - Synchronzie with orchestration instance (code sample)</DisplayName>
+    <Description>BizWTF Testing - Synchronzie with orchestration instance (code sample)</Description>
+    <FileContentType>Code Snippet</FileContentType>
+    <ContentVersion>2.0</ContentVersion>
+    <Attributes>
+      <Attribute name="lang" value="csharp" />
+    </Attributes>
+  </Content>
+</VSContent>

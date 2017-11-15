@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DBEntitiesStoreContainer">
+          <EntitySet Name="bts_receiveport" EntityType="DBEntities.Store.bts_receiveport" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="bts_receiveport">
+          <Key>
+            <PropertyRef Name="nID" />
+          </Key>
+          <Property Name="nID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nvcName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="bTwoWay" Type="bit" Nullable="false" />
+          <Property Name="nAuthentication" Type="int" Nullable="false" />
+          <Property Name="nSendPipelineId" Type="int" />
+          <Property Name="nvcSendPipelineData" Type="ntext" />
+          <Property Name="nTracking" Type="int" />
+          <Property Name="uidGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nvcCustomData" Type="ntext" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+          <Property Name="nApplicationID" Type="int" Nullable="false" />
+          <Property Name="nvcDescription" Type="nvarchar" MaxLength="1024" />
+          <Property Name="bRouteFailedMessage" Type="bit" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MgmtDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bts_receiveport" EntityType="DBEntities.bts_receiveport" />
+        </EntityContainer>
+        <EntityType Name="bts_receiveport">
+          <Key>
+            <PropertyRef Name="nID" />
+          </Key>
+          <Property Name="nID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nvcName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="bTwoWay" Type="Boolean" Nullable="false" />
+          <Property Name="nAuthentication" Type="Int32" Nullable="false" />
+          <Property Name="nSendPipelineId" Type="Int32" />
+          <Property Name="nvcSendPipelineData" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="nTracking" Type="Int32" />
+          <Property Name="uidGUID" Type="Guid" Nullable="false" />
+          <Property Name="nvcCustomData" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" />
+          <Property Name="nApplicationID" Type="Int32" Nullable="false" />
+          <Property Name="nvcDescription" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="bRouteFailedMessage" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBEntitiesStoreContainer" CdmEntityContainer="MgmtDbEntities">
+          <EntitySetMapping Name="bts_receiveport"><EntityTypeMapping TypeName="DBEntities.bts_receiveport"><MappingFragment StoreEntitySet="bts_receiveport">
+            <ScalarProperty Name="nID" ColumnName="nID" />
+            <ScalarProperty Name="nvcName" ColumnName="nvcName" />
+            <ScalarProperty Name="bTwoWay" ColumnName="bTwoWay" />
+            <ScalarProperty Name="nAuthentication" ColumnName="nAuthentication" />
+            <ScalarProperty Name="nSendPipelineId" ColumnName="nSendPipelineId" />
+            <ScalarProperty Name="nvcSendPipelineData" ColumnName="nvcSendPipelineData" />
+            <ScalarProperty Name="nTracking" ColumnName="nTracking" />
+            <ScalarProperty Name="uidGUID" ColumnName="uidGUID" />
+            <ScalarProperty Name="nvcCustomData" ColumnName="nvcCustomData" />
+            <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+            <ScalarProperty Name="nApplicationID" ColumnName="nApplicationID" />
+            <ScalarProperty Name="nvcDescription" ColumnName="nvcDescription" />
+            <ScalarProperty Name="bRouteFailedMessage" ColumnName="bRouteFailedMessage" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MgmtDBEntities">
+        <EntityTypeShape EntityType="DBEntities.bts_receiveport" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1116666189829507" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

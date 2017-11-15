@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B3795E6-80E4-40B7-8358-16DFF63FEAE6}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\BizWTF.snk = Resources\BizWTF.snk
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mocking", "Mocking", "{29748608-3BDC-47D0-AAF8-8BAFA3274E77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{ED7B15A4-86C6-4D86-A809-6EBC55462375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{40217020-CB6D-4265-BABB-5F8380575458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Core.Entities", "BizWTF.Core.Entities\BizWTF.Core.Entities.csproj", "{C831FDC1-6440-4254-9061-3ADF1B2D42FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Core", "BizWTF.Core\BizWTF.Core.csproj", "{C59B85F8-F233-4986-B777-9A12B00F960B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Mocking.PipelineComponents", "BizWTF.Mocking.PipelineComponents\BizWTF.Mocking.PipelineComponents.csproj", "{0D7D6544-F9FA-4F71-8876-A5EE7422AA57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Deprecated", "_Deprecated", "{90A83B2C-38FD-494B-85B4-D099D53659A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Mocking.Schemas", "BizWTF.Mocking.Schemas\BizWTF.Mocking.Schemas.btproj", "{C2F2C123-E79A-44EE-8021-A277A24BBBF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Mocking.Pipelines", "BizWTF.Mocking.Pipelines\BizWTF.Mocking.Pipelines.btproj", "{C097BBC5-BBCE-4568-811E-10AAF4F300B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Mocking.Services", "BizWTF.Mocking.Services\BizWTF.Mocking.Services.csproj", "{DAA95C07-108A-461D-A0D1-213EC0790431}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizWTF.Testing.VSDevTools", "BizWTF.Testing.VSDevTools\BizWTF.Testing.VSDevTools.csproj", "{1D08D4CF-1534-475A-824A-1486F8F121DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snippets", "Snippets", "{A5477DAB-6240-4028-A2F3-653FC5840820}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Snippets\BizWTF Snippets.vscontent = Resources\Snippets\BizWTF Snippets.vscontent
+		Resources\Snippets\Mocking - 2Way service - Add part resolution setting.snippet = Resources\Snippets\Mocking - 2Way service - Add part resolution setting.snippet
+		Resources\Snippets\Mocking - Create 1way service.snippet = Resources\Snippets\Mocking - Create 1way service.snippet
+		Resources\Snippets\Mocking - Create 2way service.snippet = Resources\Snippets\Mocking - Create 2way service.snippet
+		Resources\Snippets\Mocking - Submit 1way message.snippet = Resources\Snippets\Mocking - Submit 1way message.snippet
+		Resources\Snippets\Mocking - Submit 2way message.snippet = Resources\Snippets\Mocking - Submit 2way message.snippet
+		Resources\Snippets\Mocking - Surround raw message with BizWTF decoration.snippet = Resources\Snippets\Mocking - Surround raw message with BizWTF decoration.snippet
+		Resources\Snippets\Mocking - Surround XML message with BizWTF decoration.snippet = Resources\Snippets\Mocking - Surround XML message with BizWTF decoration.snippet
+		Resources\Snippets\Orchestration - Get process debug infos.snippet = Resources\Snippets\Orchestration - Get process debug infos.snippet
+		Resources\Snippets\Orchestration - Synchronize.snippet = Resources\Snippets\Orchestration - Synchronize.snippet
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wizards", "Wizards", "{E2DA0530-30E1-4DD8-926A-2447A7BA86B8}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Wizards\ExtractMPMessageWizard.vsix = Resources\Wizards\ExtractMPMessageWizard.vsix
+		Resources\Wizards\GenerateBindingWizard.vsix = Resources\Wizards\GenerateBindingWizard.vsix
+		Resources\Wizards\GenerateOrchestrationScenario.vsix = Resources\Wizards\GenerateOrchestrationScenario.vsix
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C831FDC1-6440-4254-9061-3ADF1B2D42FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C831FDC1-6440-4254-9061-3ADF1B2D42FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C831FDC1-6440-4254-9061-3ADF1B2D42FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C831FDC1-6440-4254-9061-3ADF1B2D42FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59B85F8-F233-4986-B777-9A12B00F960B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59B85F8-F233-4986-B777-9A12B00F960B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59B85F8-F233-4986-B777-9A12B00F960B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59B85F8-F233-4986-B777-9A12B00F960B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D7D6544-F9FA-4F71-8876-A5EE7422AA57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D7D6544-F9FA-4F71-8876-A5EE7422AA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D7D6544-F9FA-4F71-8876-A5EE7422AA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D7D6544-F9FA-4F71-8876-A5EE7422AA57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F2C123-E79A-44EE-8021-A277A24BBBF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F2C123-E79A-44EE-8021-A277A24BBBF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F2C123-E79A-44EE-8021-A277A24BBBF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F2C123-E79A-44EE-8021-A277A24BBBF9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DAA95C07-108A-461D-A0D1-213EC0790431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA95C07-108A-461D-A0D1-213EC0790431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA95C07-108A-461D-A0D1-213EC0790431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA95C07-108A-461D-A0D1-213EC0790431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D08D4CF-1534-475A-824A-1486F8F121DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D08D4CF-1534-475A-824A-1486F8F121DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D08D4CF-1534-475A-824A-1486F8F121DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D08D4CF-1534-475A-824A-1486F8F121DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C831FDC1-6440-4254-9061-3ADF1B2D42FF} = {40217020-CB6D-4265-BABB-5F8380575458}
+		{C59B85F8-F233-4986-B777-9A12B00F960B} = {40217020-CB6D-4265-BABB-5F8380575458}
+		{0D7D6544-F9FA-4F71-8876-A5EE7422AA57} = {29748608-3BDC-47D0-AAF8-8BAFA3274E77}
+		{C2F2C123-E79A-44EE-8021-A277A24BBBF9} = {90A83B2C-38FD-494B-85B4-D099D53659A5}
+		{C097BBC5-BBCE-4568-811E-10AAF4F300B6} = {29748608-3BDC-47D0-AAF8-8BAFA3274E77}
+		{DAA95C07-108A-461D-A0D1-213EC0790431} = {29748608-3BDC-47D0-AAF8-8BAFA3274E77}
+		{1D08D4CF-1534-475A-824A-1486F8F121DD} = {ED7B15A4-86C6-4D86-A809-6EBC55462375}
+		{A5477DAB-6240-4028-A2F3-653FC5840820} = {5B3795E6-80E4-40B7-8358-16DFF63FEAE6}
+		{E2DA0530-30E1-4DD8-926A-2447A7BA86B8} = {5B3795E6-80E4-40B7-8358-16DFF63FEAE6}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = NWT.Testing.vsmdi
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BizWTF Testing - Synchronzie with orchestration instance</Title>
+      <Author>Simon Rivas</Author>
+      <Description>Init an orchestration synchronization step and starts it</Description>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>BizWTF.Core,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Core.Entities,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Mocking.Services,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services.Settings</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.Mocking</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.ProcessValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps.Messaging</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.GetSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.TestSteps</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[BizWTF.Core.Tests.ActionSteps.SynchronizeProcessDebugStep synchroStep = new BizWTF.Core.Tests.ActionSteps.SynchronizeProcessDebugStep("Synchronization : <Your orchestration>");
+                    synchroStep.ProcessName = "<FQN of your orchestration.Eg: myAssembly.myOrchestration>";
+                    synchroStep.TargetContextProperty = "SyncProcess_Result_<Your orchestration>_<Functional case tested>"; // Choose any relevant name
+                    /// The following context properties and XPath queries are used to precisely spot which orchestration instance you want to synchronize with.
+                    /// This is only an example. If nothing is specified, the most recent instance will be selected.
+                    /// You can add as many context props and XPath queries as you like
+                    synchroStep.ContextProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlProperty("http://schemas.microsoft.com/BizTalk/2003/system-properties",
+                                                            "MessageType",
+                                                            "<Your message type>"));
+                    synchroStep.ContextProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlProperty("https://BizWTF.Mocking.Schemas.ProcessingProperties",
+                                                            "TestID",
+                                                            testID)); // NOTE : if a test ID was set in a previous step, use it here
+                    synchroStep.XPathProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlField("string(/*[local-name()='RootNode']/*[local-name()='SomeNode'])", "YourValue"));
+                    
+                    /// NOTE : Polling settings are used to determine how long BizWTF will keep waiting for a matching instance to be started.
+                    /// If no matching instance is found, the step fails.
+                    synchroStep.PollingCount = 100;
+                    synchroStep.PollingInterval = 200; // Interval in ms
+                    /// OPTIONAL ----------------------------------------
+                    /// ProcessStoped : Add a handler to determine if BizWTF should continue waiting for this instance to complete (or terminate).
+                    /// The handler function should return true to keep waiting, false to stop waiting.
+                    synchroStep.ProcessStopped = new BizWTF.Core.Tests.ActionSteps.SynchronizeProcessDebugStep.ProcessStoppedHandler((Microsoft.BizTalk.Operations.OrchestrationInstance instance) =>
+                        {
+                            if (instance.UserState == "Suspended")
+                            {
+                                /// Do something
+                                /// Below is an example : the service instance is resumed
+                                BizWTF.Core.BizTalk.Operations.ServiceInstance si = new BizWTF.Core.BizTalk.Operations.ServiceInstance(instance.ID);
+                                si.Resume();
+                                return true;
+                            }
+                            else
+                                return false;
+                        });
+                        
+                    /// ForceTrackedMessageCopyJobStep : used to force execution of the TrackedMessageCopy job
+                    BizWTF.Core.Tests.ActionSteps.ForceTrackedMessageCopyJobStep ftmc = new BizWTF.Core.Tests.ActionSteps.ForceTrackedMessageCopyJobStep("Wait until tracking job executes");
+                    
+                    if (!synchroStep.ExecuteStep())
+                    {
+                        Assert.Fail(synchroStep.ResultDescription); 
+                        // NOTE : in case of short living orchestrations, the synchronization step may fail because it didn't have to time to execute before the orchestration finished
+                    }
+                    if (!ftmc.ExecuteStep())
+                        Assert.Fail(ftmc.ResultDescription); //NOTE : this step should DEFINITELY complete
+                    ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

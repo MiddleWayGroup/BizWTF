@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BizWTF Testing - Get orchestration instance debug information and test</Title>
+      <Author>Simon Rivas</Author>
+      <Description>Retrieves debug info of an orchestrtaion instance, and tests it against a given scenario</Description>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>BizWTF.Core,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Core.Entities,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Mocking.Services,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services.Settings</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.Mocking</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.ProcessValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps.Messaging</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.GetSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.TestSteps</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[
+                  BizWTF.Core.Tests.ActionSteps.ForceTrackedMessageCopyJobStep dtaStep = new BizWTF.Core.Tests.ActionSteps.ForceTrackedMessageCopyJobStep("Force tracking job");
+                  if (!dtaStep.ExecuteStep())
+                    Assert.Fail(dtaStep.ResultDescription);
+                    
+                  BizWTF.Core.Tests.GetSteps.GetProcessDebugStep getProcess = new BizWTF.Core.Tests.GetSteps.GetProcessDebugStep("GetProcess - <Your orchestration>");
+                  getProcess.TargetContextProperty = "GetProcess_Result_<Your orchestration>_<Functional case tested>"; // Choose any relevant name
+                  #region GetProcessDebugStep : Orchestration selection configuration
+                  /// NOTE : Use either of the following two possibilities :
+                  /// - SourceContextProperty : if a SynchronizeProcessDebugStep was previously executed, in which case it should be set to the TargetContextProperty of the SynchronizeProcessDebugStep
+                  /// - ProcessName, ContextProps and XPathProps : else
+                  getProcess.SourceContextProperty = "SyncProcess_Result_<Your orchestration>_<Functional case tested>";
+
+                  getProcess.ProcessName = "<FQN of your orchestration.Eg: myAssembly.myOrchestration>";
+                  /// The following context properties and XPath queries are used to precisely spot which orchestration instance you want to synchronize with.
+                  /// This is only an example. If nothing is specified, the most recent instance will be selected.
+                  /// You can add as many context props and XPath queries as you like
+                  getProcess.ContextProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlProperty("http://schemas.microsoft.com/BizTalk/2003/system-properties",
+                                                          "MessageType",
+                                                          "<Your message type>"));
+                  getProcess.ContextProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlProperty("https://BizWTF.Mocking.Schemas.ProcessingProperties",
+                                                          "TestID",
+                                                          testID)); // NOTE : if a test ID was set in a previous step, use it here
+                  getProcess.XPathProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlField("string(/*[local-name()='RootNode']/*[local-name()='SomeNode'])", "YourValue"));
+                  #endregion
+
+                  /// NOTE : the folowing code actually executes the step.
+                  /// Any corresponding SynchronizeProcessDebugStep should be executed prior to this
+                  if (!getProcess.ExecuteStep())
+                      Assert.Fail(getProcess.ResultDescription);
+                      
+                  
+                  BizWTF.Core.Tests.TestSteps.TestProcessDebugStep testStep = new BizWTF.Core.Tests.TestSteps.TestProcessDebugStep("TestProcess - <Your orchestration>");
+                  testStep.SourceContextProperty = getProcess.TargetContextProperty;
+                  testStep.Scenario = BizWTF.Core.Entities.ProcessValidation.DebugTrace.ImportTimeLine(
+                      System.Reflection.Assembly.GetExecutingAssembly().FullName,  // In this case, the resource is embedded in the current assembly
+                      "<Your scenario as embedded resource - generated with the BizWTF wizard>");
+
+                  if (!testStep.ExecuteStep())
+                      Assert.Fail(testStep.ResultDescription);
+                  ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

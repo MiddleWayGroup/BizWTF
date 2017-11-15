@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bfa13a8d-6c41-4f5a-82cc-3071b7e5e2e7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9000/BizWTF.Testing.Ports.IN.OneWay" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BizWTF.xsd" MetadataType="Schema" ID="3dcef9f1-64a2-4f53-a17c-b531d68aca2b" SourceId="1" SourceUrl="BizWTF.xsd" />
+    <MetadataFile FileName="BizTalkServiceInstance.wsdl" MetadataType="Wsdl" ID="90b91f9a-554a-4b74-b26e-e0c178192835" SourceId="1" SourceUrl="BizTalkServiceInstance.wsdl" />
+    <MetadataFile FileName="BizWTF.disco" MetadataType="Disco" ID="dc265153-c385-4f46-8ccb-91ac6c9f8a2a" SourceId="1" SourceUrl="BizWTF.disco" />
+    <MetadataFile FileName="BizWTF.wsdl" MetadataType="Wsdl" ID="233ac0ec-7d57-4cf9-86e0-9a929a8ad3ae" SourceId="1" SourceUrl="BizWTF.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

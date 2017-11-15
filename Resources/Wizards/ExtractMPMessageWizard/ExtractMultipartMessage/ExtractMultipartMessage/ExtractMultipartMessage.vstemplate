@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<VSTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Type="Item" Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>BizWTF Mock Message generation wizard</Name>
+    <Description>Extract BizWTF Multipart Message</Description>
+    <Icon>__Template_small.png</Icon>
+    <PreviewImage>__Template_large.png</PreviewImage>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType />
+    <SortOrder>1000</SortOrder>
+    <DefaultName>BizWTF-MockMessage.xml</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <LocationField>Enabled</LocationField>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>BizWTF.Core</Assembly>
+      </Reference>
+    </References>
+    <References>
+      <Reference>
+        <Assembly>BizWTF.Core.Entities</Assembly>
+      </Reference>
+    </References>
+    <!--<ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.xml">ExtractMPMessage - Template.xml</ProjectItem>-->
+    <!--<CustomParameters />-->
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>BizWTF.Testing.VSDevTools, Version=0.0.1.0, Culture=neutral, PublicKeyToken=feb0973f78a25dac</Assembly>
+    <FullClassName>BizWTF.Testing.VSDevTools.Messaging.ExtractMPMessageWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

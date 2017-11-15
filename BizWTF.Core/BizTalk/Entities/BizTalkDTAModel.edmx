@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BizTalkDTADbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BizTalkDTADbModelStoreContainer">
+          <EntitySet Name="dta_DebugTrace" EntityType="BizTalkDTADbModel.Store.dta_DebugTrace" store:Type="Tables" store:Schema="dbo" store:Name="dta_DebugTrace">
+            <DefiningQuery>SELECT 
+      [dta_DebugTrace].[nDebugTraceId] AS [nDebugTraceId], 
+      [dta_DebugTrace].[uidServiceInstanceId] AS [uidServiceInstanceId], 
+      [dta_DebugTrace].[vtInstructionId] AS [vtInstructionId], 
+      [dta_DebugTrace].[nServiceSequence] AS [nServiceSequence], 
+      [dta_DebugTrace].[nBeginInternalSequence] AS [nBeginInternalSequence], 
+      [dta_DebugTrace].[nEndInternalSequence] AS [nEndInternalSequence], 
+      [dta_DebugTrace].[dtBeginTimeStamp] AS [dtBeginTimeStamp], 
+      [dta_DebugTrace].[dtEndTimeStamp] AS [dtEndTimeStamp], 
+      [dta_DebugTrace].[dtInsertionTimeStamp] AS [dtInsertionTimeStamp]
+      FROM [dbo].[dta_DebugTrace] AS [dta_DebugTrace]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dta_MessageInOutEvents" EntityType="BizTalkDTADbModel.Store.dta_MessageInOutEvents" store:Type="Tables" store:Schema="dbo" store:Name="dta_MessageInOutEvents">
+            <DefiningQuery>SELECT 
+      [dta_MessageInOutEvents].[nEventId] AS [nEventId], 
+      [dta_MessageInOutEvents].[uidActivityId] AS [uidActivityId], 
+      [dta_MessageInOutEvents].[uidServiceInstanceId] AS [uidServiceInstanceId], 
+      [dta_MessageInOutEvents].[uidMessageInstanceId] AS [uidMessageInstanceId], 
+      [dta_MessageInOutEvents].[nAdapterId] AS [nAdapterId], 
+      [dta_MessageInOutEvents].[nDecryptionSubjectId] AS [nDecryptionSubjectId], 
+      [dta_MessageInOutEvents].[nSigningSubjectId] AS [nSigningSubjectId], 
+      [dta_MessageInOutEvents].[nPartyId] AS [nPartyId], 
+      [dta_MessageInOutEvents].[nPortId] AS [nPortId], 
+      [dta_MessageInOutEvents].[dtTimestamp] AS [dtTimestamp], 
+      [dta_MessageInOutEvents].[nStatus] AS [nStatus], 
+      [dta_MessageInOutEvents].[nSchemaId] AS [nSchemaId], 
+      [dta_MessageInOutEvents].[nPartCount] AS [nPartCount], 
+      [dta_MessageInOutEvents].[nMessageSize] AS [nMessageSize], 
+      [dta_MessageInOutEvents].[strUrl] AS [strUrl], 
+      [dta_MessageInOutEvents].[dtInsertionTimeStamp] AS [dtInsertionTimeStamp]
+      FROM [dbo].[dta_MessageInOutEvents] AS [dta_MessageInOutEvents]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dta_PortName" EntityType="BizTalkDTADbModel.Store.dta_PortName" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dta_SchemaName" EntityType="BizTalkDTADbModel.Store.dta_SchemaName" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dta_ServiceInstanceExceptions" EntityType="BizTalkDTADbModel.Store.dta_ServiceInstanceExceptions" store:Type="Tables" store:Schema="dbo" store:Name="dta_ServiceInstanceExceptions">
+            <DefiningQuery>SELECT 
+      [dta_ServiceInstanceExceptions].[uidActivityId] AS [uidActivityId], 
+      [dta_ServiceInstanceExceptions].[uidServiceInstanceId] AS [uidServiceInstanceId], 
+      [dta_ServiceInstanceExceptions].[bTopLevelException] AS [bTopLevelException], 
+      [dta_ServiceInstanceExceptions].[txtErrorInfo] AS [txtErrorInfo]
+      FROM [dbo].[dta_ServiceInstanceExceptions] AS [dta_ServiceInstanceExceptions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dta_ServiceInstances" EntityType="BizTalkDTADbModel.Store.dta_ServiceInstances" store:Type="Tables" store:Schema="dbo" store:Name="dta_ServiceInstances">
+            <DefiningQuery>SELECT 
+      [dta_ServiceInstances].[nServiceInstanceId] AS [nServiceInstanceId], 
+      [dta_ServiceInstances].[uidActivityId] AS [uidActivityId], 
+      [dta_ServiceInstances].[uidServiceInstanceId] AS [uidServiceInstanceId], 
+      [dta_ServiceInstances].[uidServiceId] AS [uidServiceId], 
+      [dta_ServiceInstances].[uidAgentSrvId] AS [uidAgentSrvId], 
+      [dta_ServiceInstances].[uidServiceClassId] AS [uidServiceClassId], 
+      [dta_ServiceInstances].[dtStartTime] AS [dtStartTime], 
+      [dta_ServiceInstances].[dtEndTime] AS [dtEndTime], 
+      [dta_ServiceInstances].[HRESULT] AS [HRESULT], 
+      [dta_ServiceInstances].[ErrorInfo] AS [ErrorInfo], 
+      [dta_ServiceInstances].[nHostId] AS [nHostId], 
+      [dta_ServiceInstances].[nMessageBoxId] AS [nMessageBoxId], 
+      [dta_ServiceInstances].[nServiceStateId] AS [nServiceStateId], 
+      [dta_ServiceInstances].[nGroupId] AS [nGroupId], 
+      [dta_ServiceInstances].[bExceptionsOccurred] AS [bExceptionsOccurred], 
+      [dta_ServiceInstances].[dtInsertionTimeStamp] AS [dtInsertionTimeStamp]
+      FROM [dbo].[dta_ServiceInstances] AS [dta_ServiceInstances]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dta_Services" EntityType="BizTalkDTADbModel.Store.dta_Services" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dta_ServiceState" EntityType="BizTalkDTADbModel.Store.dta_ServiceState" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BizTalkDTADb.dbo.dta_DebugTrace' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="dta_DebugTrace">
+          <Key>
+            <PropertyRef Name="nDebugTraceId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="vtInstructionId" />
+            <PropertyRef Name="nServiceSequence" />
+            <PropertyRef Name="nBeginInternalSequence" />
+          </Key>
+          <Property Name="nDebugTraceId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uidServiceInstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="vtInstructionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nServiceSequence" Type="int" Nullable="false" />
+          <Property Name="nBeginInternalSequence" Type="int" Nullable="false" />
+          <Property Name="nEndInternalSequence" Type="int" />
+          <Property Name="dtBeginTimeStamp" Type="datetime" />
+          <Property Name="dtEndTimeStamp" Type="datetime" />
+          <Property Name="dtInsertionTimeStamp" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BizTalkDTADb.dbo.dta_MessageInOutEvents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="dta_MessageInOutEvents">
+          <Key>
+            <PropertyRef Name="nEventId" />
+            <PropertyRef Name="uidActivityId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="uidMessageInstanceId" />
+            <PropertyRef Name="nAdapterId" />
+            <PropertyRef Name="nDecryptionSubjectId" />
+            <PropertyRef Name="nSigningSubjectId" />
+            <PropertyRef Name="nPartyId" />
+            <PropertyRef Name="nPortId" />
+            <PropertyRef Name="dtTimestamp" />
+            <PropertyRef Name="nStatus" />
+            <PropertyRef Name="nSchemaId" />
+          </Key>
+          <Property Name="nEventId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uidActivityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidServiceInstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidMessageInstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nAdapterId" Type="bigint" Nullable="false" />
+          <Property Name="nDecryptionSubjectId" Type="int" Nullable="false" />
+          <Property Name="nSigningSubjectId" Type="int" Nullable="false" />
+          <Property Name="nPartyId" Type="bigint" Nullable="false" />
+          <Property Name="nPortId" Type="bigint" Nullable="false" />
+          <Property Name="dtTimestamp" Type="datetime" Nullable="false" />
+          <Property Name="nStatus" Type="int" Nullable="false" />
+          <Property Name="nSchemaId" Type="int" Nullable="false" />
+          <Property Name="nPartCount" Type="int" />
+          <Property Name="nMessageSize" Type="bigint" />
+          <Property Name="strUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="dtInsertionTimeStamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dta_PortName">
+          <Key>
+            <PropertyRef Name="nPortId" />
+          </Key>
+          <Property Name="nPortId" Type="int" Nullable="false" />
+          <Property Name="strPortName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="dta_SchemaName">
+          <Key>
+            <PropertyRef Name="nSchemaId" />
+          </Key>
+          <Property Name="nSchemaId" Type="int" Nullable="false" />
+          <Property Name="strSchemaName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BizTalkDTADb.dbo.dta_ServiceInstanceExceptions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="dta_ServiceInstanceExceptions">
+          <Key>
+            <PropertyRef Name="uidActivityId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="bTopLevelException" />
+          </Key>
+          <Property Name="uidActivityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidServiceInstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="bTopLevelException" Type="int" Nullable="false" />
+          <Property Name="txtErrorInfo" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BizTalkDTADb.dbo.dta_ServiceInstances' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="dta_ServiceInstances">
+          <Key>
+            <PropertyRef Name="nServiceInstanceId" />
+            <PropertyRef Name="uidActivityId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="uidServiceId" />
+            <PropertyRef Name="uidAgentSrvId" />
+            <PropertyRef Name="uidServiceClassId" />
+            <PropertyRef Name="dtStartTime" />
+            <PropertyRef Name="nHostId" />
+            <PropertyRef Name="nMessageBoxId" />
+            <PropertyRef Name="nServiceStateId" />
+            <PropertyRef Name="nGroupId" />
+            <PropertyRef Name="bExceptionsOccurred" />
+          </Key>
+          <Property Name="nServiceInstanceId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uidActivityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidServiceInstanceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidServiceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidAgentSrvId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidServiceClassId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="dtStartTime" Type="datetime" Nullable="false" />
+          <Property Name="dtEndTime" Type="datetime" />
+          <Property Name="HRESULT" Type="bigint" />
+          <Property Name="ErrorInfo" Type="ntext" />
+          <Property Name="nHostId" Type="int" Nullable="false" />
+          <Property Name="nMessageBoxId" Type="int" Nullable="false" />
+          <Property Name="nServiceStateId" Type="int" Nullable="false" />
+          <Property Name="nGroupId" Type="int" Nullable="false" />
+          <Property Name="bExceptionsOccurred" Type="int" Nullable="false" />
+          <Property Name="dtInsertionTimeStamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dta_Services">
+          <Key>
+            <PropertyRef Name="uidServiceId" />
+          </Key>
+          <Property Name="nServiceId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uidServiceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uidNonVersionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="strServiceType" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="strServiceName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="strAssemblyName" Type="nvarchar" MaxLength="1024" />
+          <Property Name="strAssemblyVersion" Type="nvarchar" MaxLength="256" />
+          <Property Name="dtDeploymentTime" Type="datetime" Nullable="false" />
+          <Property Name="txtSymbol" Type="ntext" />
+        </EntityType>
+        <EntityType Name="dta_ServiceState">
+          <Key>
+            <PropertyRef Name="nServiceStateId" />
+          </Key>
+          <Property Name="nServiceStateId" Type="int" Nullable="false" />
+          <Property Name="strState" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BizTalkDTADbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BizTalkDTADbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dta_DebugTrace" EntityType="BizTalkDTADbModel.dta_DebugTrace" />
+          <EntitySet Name="dta_MessageInOutEvents" EntityType="BizTalkDTADbModel.dta_MessageInOutEvents" />
+          <EntitySet Name="dta_ServiceInstanceExceptions" EntityType="BizTalkDTADbModel.dta_ServiceInstanceExceptions" />
+          <EntitySet Name="dta_ServiceInstances" EntityType="BizTalkDTADbModel.dta_ServiceInstances" />
+          <EntitySet Name="dta_Services" EntityType="BizTalkDTADbModel.dta_Services" />
+          <EntitySet Name="dta_PortName" EntityType="BizTalkDTADbModel.dta_PortName" />
+          <EntitySet Name="dta_SchemaName" EntityType="BizTalkDTADbModel.dta_SchemaName" />
+          <EntitySet Name="dta_ServiceState" EntityType="BizTalkDTADbModel.dta_ServiceState" />
+        </EntityContainer>
+        <EntityType Name="dta_DebugTrace">
+          <Key>
+            <PropertyRef Name="nDebugTraceId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="vtInstructionId" />
+            <PropertyRef Name="nServiceSequence" />
+            <PropertyRef Name="nBeginInternalSequence" />
+          </Key>
+          <Property Name="nDebugTraceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uidServiceInstanceId" Type="Guid" Nullable="false" />
+          <Property Name="vtInstructionId" Type="Guid" Nullable="false" />
+          <Property Name="nServiceSequence" Type="Int32" Nullable="false" />
+          <Property Name="nBeginInternalSequence" Type="Int32" Nullable="false" />
+          <Property Name="nEndInternalSequence" Type="Int32" />
+          <Property Name="dtBeginTimeStamp" Type="DateTime" />
+          <Property Name="dtEndTimeStamp" Type="DateTime" />
+          <Property Name="dtInsertionTimeStamp" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="dta_MessageInOutEvents">
+          <Key>
+            <PropertyRef Name="nEventId" />
+            <PropertyRef Name="uidActivityId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="uidMessageInstanceId" />
+            <PropertyRef Name="nAdapterId" />
+            <PropertyRef Name="nDecryptionSubjectId" />
+            <PropertyRef Name="nSigningSubjectId" />
+            <PropertyRef Name="nPartyId" />
+            <PropertyRef Name="nPortId" />
+            <PropertyRef Name="dtTimestamp" />
+            <PropertyRef Name="nStatus" />
+            <PropertyRef Name="nSchemaId" />
+          </Key>
+          <Property Name="nEventId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uidActivityId" Type="Guid" Nullable="false" />
+          <Property Name="uidServiceInstanceId" Type="Guid" Nullable="false" />
+          <Property Name="uidMessageInstanceId" Type="Guid" Nullable="false" />
+          <Property Name="nAdapterId" Type="Int64" Nullable="false" />
+          <Property Name="nDecryptionSubjectId" Type="Int32" Nullable="false" />
+          <Property Name="nSigningSubjectId" Type="Int32" Nullable="false" />
+          <Property Name="nPartyId" Type="Int64" Nullable="false" />
+          <Property Name="nPortId" Type="Int64" Nullable="false" />
+          <Property Name="dtTimestamp" Type="DateTime" Nullable="false" />
+          <Property Name="nStatus" Type="Int32" Nullable="false" />
+          <Property Name="nSchemaId" Type="Int32" Nullable="false" />
+          <Property Name="nPartCount" Type="Int32" />
+          <Property Name="nMessageSize" Type="Int64" />
+          <Property Name="strUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="dtInsertionTimeStamp" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="dta_ServiceInstanceExceptions">
+          <Key>
+            <PropertyRef Name="uidActivityId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="bTopLevelException" />
+          </Key>
+          <Property Name="uidActivityId" Type="Guid" Nullable="false" />
+          <Property Name="uidServiceInstanceId" Type="Guid" Nullable="false" />
+          <Property Name="bTopLevelException" Type="Int32" Nullable="false" />
+          <Property Name="txtErrorInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="dta_ServiceInstances">
+          <Key>
+            <PropertyRef Name="nServiceInstanceId" />
+            <PropertyRef Name="uidActivityId" />
+            <PropertyRef Name="uidServiceInstanceId" />
+            <PropertyRef Name="uidServiceId" />
+            <PropertyRef Name="uidAgentSrvId" />
+            <PropertyRef Name="uidServiceClassId" />
+            <PropertyRef Name="dtStartTime" />
+            <PropertyRef Name="nHostId" />
+            <PropertyRef Name="nMessageBoxId" />
+            <PropertyRef Name="nServiceStateId" />
+            <PropertyRef Name="nGroupId" />
+            <PropertyRef Name="bExceptionsOccurred" />
+          </Key>
+          <Property Name="nServiceInstanceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uidActivityId" Type="Guid" Nullable="false" />
+          <Property Name="uidServiceInstanceId" Type="Guid" Nullable="false" />
+          <Property Name="uidServiceId" Type="Guid" Nullable="false" />
+          <Property Name="uidAgentSrvId" Type="Guid" Nullable="false" />
+          <Property Name="uidServiceClassId" Type="Guid" Nullable="false" />
+          <Property Name="dtStartTime" Type="DateTime" Nullable="false" />
+          <Property Name="dtEndTime" Type="DateTime" />
+          <Property Name="HRESULT" Type="Int64" />
+          <Property Name="ErrorInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="nHostId" Type="Int32" Nullable="false" />
+          <Property Name="nMessageBoxId" Type="Int32" Nullable="false" />
+          <Property Name="nServiceStateId" Type="Int32" Nullable="false" />
+          <Property Name="nGroupId" Type="Int32" Nullable="false" />
+          <Property Name="bExceptionsOccurred" Type="Int32" Nullable="false" />
+          <Property Name="dtInsertionTimeStamp" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="dta_Services">
+          <Key>
+            <PropertyRef Name="uidServiceId" />
+          </Key>
+          <Property Name="nServiceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uidServiceId" Type="Guid" Nullable="false" />
+          <Property Name="uidNonVersionId" Type="Guid" Nullable="false" />
+          <Property Name="strServiceType" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="strServiceName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="strAssemblyName" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="strAssemblyVersion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="dtDeploymentTime" Type="DateTime" Nullable="false" />
+          <Property Name="txtSymbol" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="dta_PortName">
+          <Key>
+            <PropertyRef Name="nPortId" />
+          </Key>
+          <Property Type="Int32" Name="nPortId" Nullable="false" />
+          <Property Type="String" Name="strPortName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dta_SchemaName">
+          <Key>
+            <PropertyRef Name="nSchemaId" />
+          </Key>
+          <Property Type="Int32" Name="nSchemaId" Nullable="false" />
+          <Property Type="String" Name="strSchemaName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dta_ServiceState">
+          <Key>
+            <PropertyRef Name="nServiceStateId" />
+          </Key>
+          <Property Type="Int32" Name="nServiceStateId" Nullable="false" />
+          <Property Type="String" Name="strState" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BizTalkDTADbModelStoreContainer" CdmEntityContainer="BizTalkDTADbEntities">
+          <EntitySetMapping Name="dta_DebugTrace"><EntityTypeMapping TypeName="BizTalkDTADbModel.dta_DebugTrace"><MappingFragment StoreEntitySet="dta_DebugTrace">
+            <ScalarProperty Name="nDebugTraceId" ColumnName="nDebugTraceId" />
+            <ScalarProperty Name="uidServiceInstanceId" ColumnName="uidServiceInstanceId" />
+            <ScalarProperty Name="vtInstructionId" ColumnName="vtInstructionId" />
+            <ScalarProperty Name="nServiceSequence" ColumnName="nServiceSequence" />
+            <ScalarProperty Name="nBeginInternalSequence" ColumnName="nBeginInternalSequence" />
+            <ScalarProperty Name="nEndInternalSequence" ColumnName="nEndInternalSequence" />
+            <ScalarProperty Name="dtBeginTimeStamp" ColumnName="dtBeginTimeStamp" />
+            <ScalarProperty Name="dtEndTimeStamp" ColumnName="dtEndTimeStamp" />
+            <ScalarProperty Name="dtInsertionTimeStamp" ColumnName="dtInsertionTimeStamp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dta_MessageInOutEvents"><EntityTypeMapping TypeName="BizTalkDTADbModel.dta_MessageInOutEvents"><MappingFragment StoreEntitySet="dta_MessageInOutEvents">
+            <ScalarProperty Name="nEventId" ColumnName="nEventId" />
+            <ScalarProperty Name="uidActivityId" ColumnName="uidActivityId" />
+            <ScalarProperty Name="uidServiceInstanceId" ColumnName="uidServiceInstanceId" />
+            <ScalarProperty Name="uidMessageInstanceId" ColumnName="uidMessageInstanceId" />
+            <ScalarProperty Name="nAdapterId" ColumnName="nAdapterId" />
+            <ScalarProperty Name="nDecryptionSubjectId" ColumnName="nDecryptionSubjectId" />
+            <ScalarProperty Name="nSigningSubjectId" ColumnName="nSigningSubjectId" />
+            <ScalarProperty Name="nPartyId" ColumnName="nPartyId" />
+            <ScalarProperty Name="nPortId" ColumnName="nPortId" />
+            <ScalarProperty Name="dtTimestamp" ColumnName="dtTimestamp" />
+            <ScalarProperty Name="nStatus" ColumnName="nStatus" />
+            <ScalarProperty Name="nSchemaId" ColumnName="nSchemaId" />
+            <ScalarProperty Name="nPartCount" ColumnName="nPartCount" />
+            <ScalarProperty Name="nMessageSize" ColumnName="nMessageSize" />
+            <ScalarProperty Name="strUrl" ColumnName="strUrl" />
+            <ScalarProperty Name="dtInsertionTimeStamp" ColumnName="dtInsertionTimeStamp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dta_ServiceInstanceExceptions"><EntityTypeMapping TypeName="BizTalkDTADbModel.dta_ServiceInstanceExceptions"><MappingFragment StoreEntitySet="dta_ServiceInstanceExceptions">
+            <ScalarProperty Name="uidActivityId" ColumnName="uidActivityId" />
+            <ScalarProperty Name="uidServiceInstanceId" ColumnName="uidServiceInstanceId" />
+            <ScalarProperty Name="bTopLevelException" ColumnName="bTopLevelException" />
+            <ScalarProperty Name="txtErrorInfo" ColumnName="txtErrorInfo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dta_ServiceInstances"><EntityTypeMapping TypeName="BizTalkDTADbModel.dta_ServiceInstances"><MappingFragment StoreEntitySet="dta_ServiceInstances">
+            <ScalarProperty Name="nServiceInstanceId" ColumnName="nServiceInstanceId" />
+            <ScalarProperty Name="uidActivityId" ColumnName="uidActivityId" />
+            <ScalarProperty Name="uidServiceInstanceId" ColumnName="uidServiceInstanceId" />
+            <ScalarProperty Name="uidServiceId" ColumnName="uidServiceId" />
+            <ScalarProperty Name="uidAgentSrvId" ColumnName="uidAgentSrvId" />
+            <ScalarProperty Name="uidServiceClassId" ColumnName="uidServiceClassId" />
+            <ScalarProperty Name="dtStartTime" ColumnName="dtStartTime" />
+            <ScalarProperty Name="dtEndTime" ColumnName="dtEndTime" />
+            <ScalarProperty Name="HRESULT" ColumnName="HRESULT" />
+            <ScalarProperty Name="ErrorInfo" ColumnName="ErrorInfo" />
+            <ScalarProperty Name="nHostId" ColumnName="nHostId" />
+            <ScalarProperty Name="nMessageBoxId" ColumnName="nMessageBoxId" />
+            <ScalarProperty Name="nServiceStateId" ColumnName="nServiceStateId" />
+            <ScalarProperty Name="nGroupId" ColumnName="nGroupId" />
+            <ScalarProperty Name="bExceptionsOccurred" ColumnName="bExceptionsOccurred" />
+            <ScalarProperty Name="dtInsertionTimeStamp" ColumnName="dtInsertionTimeStamp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dta_Services"><EntityTypeMapping TypeName="BizTalkDTADbModel.dta_Services"><MappingFragment StoreEntitySet="dta_Services">
+            <ScalarProperty Name="nServiceId" ColumnName="nServiceId" />
+            <ScalarProperty Name="uidServiceId" ColumnName="uidServiceId" />
+            <ScalarProperty Name="uidNonVersionId" ColumnName="uidNonVersionId" />
+            <ScalarProperty Name="strServiceType" ColumnName="strServiceType" />
+            <ScalarProperty Name="strServiceName" ColumnName="strServiceName" />
+            <ScalarProperty Name="strAssemblyName" ColumnName="strAssemblyName" />
+            <ScalarProperty Name="strAssemblyVersion" ColumnName="strAssemblyVersion" />
+            <ScalarProperty Name="dtDeploymentTime" ColumnName="dtDeploymentTime" />
+            <ScalarProperty Name="txtSymbol" ColumnName="txtSymbol" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dta_PortName">
+            <EntityTypeMapping TypeName="BizTalkDTADbModel.dta_PortName">
+              <MappingFragment StoreEntitySet="dta_PortName">
+                <ScalarProperty Name="strPortName" ColumnName="strPortName" />
+                <ScalarProperty Name="nPortId" ColumnName="nPortId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dta_SchemaName">
+            <EntityTypeMapping TypeName="BizTalkDTADbModel.dta_SchemaName">
+              <MappingFragment StoreEntitySet="dta_SchemaName">
+                <ScalarProperty Name="strSchemaName" ColumnName="strSchemaName" />
+                <ScalarProperty Name="nSchemaId" ColumnName="nSchemaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dta_ServiceState">
+            <EntityTypeMapping TypeName="BizTalkDTADbModel.dta_ServiceState">
+              <MappingFragment StoreEntitySet="dta_ServiceState">
+                <ScalarProperty Name="strState" ColumnName="strState" />
+                <ScalarProperty Name="nServiceStateId" ColumnName="nServiceStateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BizTalkDTAModel">
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_DebugTrace" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_MessageInOutEvents" Width="1.5" PointX="2.75" PointY="0.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_ServiceInstanceExceptions" Width="1.5" PointX="4.75" PointY="0.75" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_ServiceInstances" Width="2.25" PointX="4.75" PointY="3.75" Height="3.6122525475422531" IsExpanded="true" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_Services" Width="1.5" PointX="0.75" PointY="5.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_PortName" Width="1.5" PointX="7.375" PointY="0.75" Height="1.2636116536458326" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_SchemaName" Width="2" PointX="7.375" PointY="3.75" Height="1.2761848809321714" />
+        <EntityTypeShape EntityType="BizTalkDTADbModel.dta_ServiceState" Width="1.875" PointX="7.375" PointY="5.375" Height="1.2761848809321705" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="ExtractMPMessageWizard.88cebc2f-d034-43d2-ad5c-b8dd2b7ba853">
+    <Name>BizWTF Mock Message generation wizard</Name>
+    <Author>Codeplex</Author>
+    <Version>0.1</Version>
+    <Description>Extract BizWTF Multipart Message</Description>
+    <Locale>1033</Locale>
+    <Icon>VSIXProject_small.png</Icon>
+    <PreviewImage>VSIXProject_large.png</PreviewImage>
+    <InstalledByMsi>false</InstalledByMsi>
+    <SupportedProducts>
+      <VisualStudio Version="11.0">
+        <Edition>Pro</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Ultimate</Edition>
+      </VisualStudio>
+      <VisualStudio Version="12.0">
+        <Edition>Pro</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Ultimate</Edition>
+      </VisualStudio>
+      <VisualStudio Version="13.0">
+        <Edition>Pro</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Ultimate</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5" />
+  </Identifier>
+  <References />
+  <Content>
+    <Assembly AssemblyName="BizWTF.Testing.VSDevTools, Version=0.0.1.0, Culture=neutral, PublicKeyToken=feb0973f78a25dac">BizWTF.Testing.VSDevTools.dll</Assembly>
+    <ItemTemplate>ExtractMultipartMessage</ItemTemplate>
+  </Content>
+</Vsix>

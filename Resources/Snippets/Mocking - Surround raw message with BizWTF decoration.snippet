@@ -1,0 +1,35 @@
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>BizWTF Mocking - Surround raw message with BizWTF formatting</Title>
+    <Author>Simon Rivas</Author>
+    <Description>Transform a raw message (eg : flat file) into a valid BizWTF mock message</Description>
+    <SnippetTypes>
+      <SnippetType>SurroundsWith</SnippetType>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Code Language="XML">
+      <![CDATA[<MultipartMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://BizWTF.Mocking.Schemas.Submission">
+  <Description>Mock service response</Description>
+  <PropertyBag>
+    <!-- Add below all required properties. You can attach as many properties as you want to the message property bag. -->
+    <!-- NOTE : in most cases this will not be used. -->
+    <!--<ContextProperty xmlns="http://BizWTF.Mocking.Schemas.Submission">
+      <Name>MessageType</Name>
+      <Namespace>http://schemas.microsoft.com/BizTalk/2003/system-properties</Namespace>
+      <Value>http://BizWTF.Sample.Processes.Demo#Demo</Value>
+      <Promoted>true</Promoted>
+    </ContextProperty>-->
+  </PropertyBag>
+  <Parts>
+    <Part>
+      <PartName>body</PartName>
+      <IsBodyPart>true</IsBodyPart>
+      <RawData>$selected$</RawData>
+    </Part>
+  </Parts>
+</MultipartMessage>]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

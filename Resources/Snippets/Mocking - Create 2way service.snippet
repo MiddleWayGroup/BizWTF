@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BizWTF Mocking - Create 2Way service</Title>
+      <Author>Simon Rivas</Author>
+      <Description>Init a 2-way mock service and starts it</Description>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>BizWTF.Core,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Core.Entities,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Mocking.Services,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services.Settings</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.Mocking</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.ProcessValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps.Messaging</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.GetSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.TestSteps</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[
+            using (BizWTF.Core.Tests.ActionSteps.Messaging.Init2WayMockMessagingService twoWayTarget = new BizWTF.Core.Tests.ActionSteps.Messaging.Init2WayMockMessagingService { 
+                                                                    StepName = "Init 2-Way mock service",
+                                                                    ServiceURI = "http://localhost:9100/BizWTF.Testing.Ports.OUT.TwoWay"
+                                                                    })
+            {
+                #region Mocking 2-way System (XXX)
+                BizWTF.Mocking.Services.Settings.MessageResolutionSetting setting = new BizWTF.Mocking.Services.Settings.MessageResolutionSetting();
+                setting.Description = "<Resolution short description>";
+                setting.ContextProps.Add(new BizWTF.Core.Entities.ProcessValidation.ControlProperty("http://schemas.microsoft.com/BizTalk/2003/system-properties",
+                                                            "MessageType",
+                                                            "<Your Message Type Here>"));
+                        // Add as many ControlProperty as needed
+                setting.TargetMessage = BizWTF.Core.Entities.Mocking.MultipartMessageSerializer.RetrieveDocument(@"<Resource name>",
+                                                                                    System.Reflection.Assembly.GetExecutingAssembly());
+                twoWayTarget.ResolutionSettings.Clear();
+                twoWayTarget.ResolutionSettings.Add(setting);
+                        // Add as many resolution setting as needed
+
+                /// OPTIONAL : if you need to fire some custom code when a message is received
+                //MockServiceEventHub.ResetMessageReceivedEventHandler(); // Optional, if you need to flush all event handlers
+                BizWTF.Mocking.Services.MockServiceEventHub.OnMessageReceived += (string uri, BizWTF.Core.Entities.MultipartMessageDefinition message) =>
+                {
+                    if(uri == twoWayTarget.ServiceURI)
+                    {
+                      // Do something
+                    }
+                };
+                
+                /// OPTIONAL : if you need to fire some custom code when a message is resolved
+                //MockServiceEventHub.ResetMessageResolvedEventHandler(); // Optional, if you need to flush all event handlers
+                BizWTF.Mocking.Services.MockServiceEventHub.OnMessageResolved += (string uri, BizWTF.Core.Entities.MultipartMessageDefinition message) =>
+                {
+                    if(uri == twoWayTarget.ServiceURI)
+                    {
+                      // Do something
+                    }
+                };
+
+                /// Following code must complete (this is were we start the mock service)
+                /// In case of any error, the user that runs the test may need som additional right to reserve the URL.
+                /// If so, consider using the following command : netsh http add urlacl url=... user=...
+                if (!twoWayTarget.ExecuteStep())
+                {
+                    Assert.Fail(twoWayTarget.ResultDescription);
+                }
+                #endregion
+                
+                
+                
+                /// Add the rest of your test here
+                // Do something
+                
+            }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

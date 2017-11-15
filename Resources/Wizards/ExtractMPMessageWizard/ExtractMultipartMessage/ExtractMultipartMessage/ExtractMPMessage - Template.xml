@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultipartMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://BizWTF.Mocking.Schemas.Submission">
+  <Description>Some description</Description>
+  <PropertyBag>
+    <!--<ContextProperty>
+      <Name>MessageType</Name>
+      <Namespace>http://schemas.microsoft.com/BizTalk/2003/system-properties</Namespace>
+      <Value>http://BizWTF.Sample.Processes.Demo#Demo</Value>
+      <Promoted>true</Promoted>
+    </ContextProperty>-->
+  </PropertyBag>
+  <Parts>
+    <Part>
+      <PartName>body</PartName>
+      <!--<PartNumber>1</PartNumber>-->
+      <!--<ContentType>ContentType_0</ContentType>-->
+      <IsBodyPart>true</IsBodyPart>
+      <Data>
+        <SomeData xmlns="http://SomeData"/>
+      </Data>
+    </Part>
+  </Parts>
+</MultipartMessage>

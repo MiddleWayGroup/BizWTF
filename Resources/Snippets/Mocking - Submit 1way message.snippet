@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BizWTF Mocking - Submit 1Way Message</Title>
+      <Author>Simon Rivas</Author>
+      <Description>Init a 1-way message send</Description>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>BizWTF.Core,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Core.Entities,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Mocking.Services,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services.Settings</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.Mocking</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.ProcessValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps.Messaging</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.GetSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.TestSteps</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[BizWTF.Core.Tests.ActionSteps.Messaging.SubmitMockMessage1WayStep send1WayMsgStep = new BizWTF.Core.Tests.ActionSteps.Messaging.SubmitMockMessage1WayStep("Submit 1Way Message");
+                send1WayMsgStep.DestURI = "http://localhost:9000/BizWTF.Testing.Ports.IN.OneWay"; // NOTE : must match a receive location URI !!!
+                send1WayMsgStep.SourceResource = @"<your embedded resources here>";
+                send1WayMsgStep.SourceResourceAssembly = System.Reflection.Assembly.GetExecutingAssembly().FullName; // In this case, the resource is embedded in the current assembly
+                send1WayMsgStep.TestID = Guid.NewGuid().ToString(); // NOTE : you can provide a test ID, wich will be attached as a message property. This facilitates instance tracking.
+                
+                /// NOTE : the folowwing code actually sends the message. 
+                /// Nevertheless, it is recommended to first initialize all the steps of the test before executing any of them.
+                if (!send1WayMsgStep.ExecuteStep())
+                {
+                    Assert.Fail(send1WayMsgStep.ResultDescription);
+                }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

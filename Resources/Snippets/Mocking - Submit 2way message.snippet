@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BizWTF Mocking - Submit 2Way Message</Title>
+      <Author>Simon Rivas</Author>
+      <Description>Init a 2-way message send</Description>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>BizWTF.Core,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Core.Entities,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>BizWTF.Mocking.Services,Version=0.0.1.0,Culture=neutral,PublicKeyToken=feb0973f78a25dac</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Mocking.Services.Settings</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.Mocking</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Entities.ProcessValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps.Messaging</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.ActionSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.GetSteps</Namespace>
+        </Import>
+        <Import>
+          <Namespace>BizWTF.Core.Tests.TestSteps</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[BizWTF.Core.Tests.ActionSteps.Messaging.SubmitMockMessage2WayStep send2WayMsgStep = new BizWTF.Core.Tests.ActionSteps.Messaging.SubmitMockMessage2WayStep("Submit 2Way Message");
+                send2WayMsgStep.DestURI = "http://localhost:9000/BizWTF.Testing.Ports.IN.TwoWay"; // NOTE : must match a receive location URI !!!
+                send2WayMsgStep.SourceResource = @"<your embedded resource here>";
+                send2WayMsgStep.SourceResourceAssembly = System.Reflection.Assembly.GetExecutingAssembly().FullName; // In this case, the resource is embedded in the current assembly
+                send2WayMsgStep.TestID = Guid.NewGuid().ToString(); // NOTE : you can provide a test ID, wich will be attached as a message property. This facilitates instance tracking.
+                send2WayMsgStep.TargetContextProperty = "send2WayMsgStep_Response";
+                
+                /// NOTE : the folowwing code actually sends the message. 
+                /// Nevertheless, it is recommended to first initialize all the steps of the test before executing any of them.
+                if (!send2WayMsgStep.ExecuteStep())
+                {
+                    Assert.Fail(send2WayMsgStep.ResultDescription);
+                }
+                
+                /// Once the step has executed successfully, do whatever test you need to do.
+                /// The following code : BTSTestContext.GetParam(send2WayMsgStep.TargetContextProperty)
+                /// retrieves the response received.
+                Assert.IsNotNull(BizWTF.Core.Entities.BTSTestContext.GetParam(send2WayMsgStep.TargetContextProperty));]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
